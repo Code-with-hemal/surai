@@ -1,0 +1,46 @@
+<div class="container">
+    <mat-toolbar>
+      <span>Book List</span>
+      <span class="spacer"></span>
+      <button mat-raised-button color="primary" (click)="openAddDialog()">
+        Add Book
+      </button>
+    </mat-toolbar>
+  
+    <table mat-table [dataSource]="books">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let book">{{book.title}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef>Author</th>
+        <td mat-cell *matCellDef="let book">{{book.author}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="isbn">
+        <th mat-header-cell *matHeaderCellDef>ISBN</th>
+        <td mat-cell *matCellDef="let book">{{book.isbn}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="publicationDate">
+        <th mat-header-cell *matHeaderCellDef>Publication Date</th>
+        <td mat-cell *matCellDef="let book">{{book.publicationDate | date}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let book">
+          <button mat-icon-button color="primary" (click)="openEditDialog(book)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteBook(book.id!)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

@@ -1,0 +1,17 @@
+/* src/app/book-list/book-list.component.css */
+.container {
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mat-toolbar {
+    margin-bottom: 20px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
